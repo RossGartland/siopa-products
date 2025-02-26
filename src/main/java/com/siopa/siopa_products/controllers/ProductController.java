@@ -1,6 +1,6 @@
 package com.siopa.siopa_products.controllers;
 
-import com.siopa.siopa_products.DTO.ProductRequest;
+import com.siopa.siopa_products.dto.ProductRequest;
 import com.siopa.siopa_products.models.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -9,7 +9,6 @@ import com.siopa.siopa_products.services.ProductService;
 import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/products")

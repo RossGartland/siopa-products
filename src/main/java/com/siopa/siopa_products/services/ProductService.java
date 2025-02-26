@@ -1,6 +1,6 @@
 package com.siopa.siopa_products.services;
 
-import com.siopa.siopa_products.DTO.ProductRequest;
+import com.siopa.siopa_products.dto.ProductRequest;
 import com.siopa.siopa_products.models.Product;
 import com.siopa.siopa_products.repositories.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 @Service
 public class ProductService {
@@ -55,6 +54,15 @@ public class ProductService {
     public Product updateProductQuantity(String productId, int quantity) {
         return productRepository.findById(productId).map(product -> {
             product.setQuantity(quantity);
+            return productRepository.save(product);
+        }).orElseThrow(() -> new RuntimeException("Product not found"));
+    }
+    public Product reduceProductQuantity(String productId, int quantity) {
+        return productRepository.findById(productId).map(product -> {
+            if (product.getQuantity() < quantity) {
+                throw new RuntimeException("Insufficient stock for product: " + productId);
+            }
+            product.setQuantity(product.getQuantity() - quantity);
             return productRepository.save(product);
         }).orElseThrow(() -> new RuntimeException("Product not found"));
     }
