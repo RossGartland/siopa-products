@@ -16,6 +16,8 @@ public class ProductRequest {
     @Min(value = 0, message = "Price must be a positive number")
     private Double price;
 
+    private String description;
+
     @NotBlank(message = "Category is required")
     private String category;
 

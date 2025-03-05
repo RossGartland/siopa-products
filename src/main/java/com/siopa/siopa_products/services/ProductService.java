@@ -33,6 +33,7 @@ public class ProductService {
         product.setName(productRequest.getName());
         product.setPrice(productRequest.getPrice());
         product.setCategory(productRequest.getCategory());
+        product.setDescription(productRequest.getDescription());
         product.setStoreId(productRequest.getStoreId());
         product.setQuantity(productRequest.getQuantity());
         product.setAttributes(productRequest.getAttributes());
@@ -44,6 +45,7 @@ public class ProductService {
             existingProduct.setName(productRequest.getName());
             existingProduct.setPrice(productRequest.getPrice());
             existingProduct.setCategory(productRequest.getCategory());
+            existingProduct.setDescription(productRequest.getDescription());
             existingProduct.setStoreId(productRequest.getStoreId());
             existingProduct.setQuantity(productRequest.getQuantity());
             existingProduct.setAttributes(productRequest.getAttributes());
