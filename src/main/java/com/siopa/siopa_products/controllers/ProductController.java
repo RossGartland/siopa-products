@@ -27,6 +27,11 @@ public class ProductController {
         return productService.getProductById(id);
     }
 
+    @GetMapping("/store/{storeId}")
+    public List<Product> getProductsByStoreId(@PathVariable String storeId) {
+        return productService.getProductsByStoreId(storeId);
+    }
+
     @PostMapping
     public Product createProduct(@Valid @RequestBody ProductRequest productRequest) {
         return productService.createProduct(productRequest);

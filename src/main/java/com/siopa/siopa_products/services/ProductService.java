@@ -24,6 +24,10 @@ public class ProductService {
         return productRepository.findById(id);
     }
 
+    public List<Product> getProductsByStoreId(String storeId) {
+        return productRepository.findByStoreId(storeId);
+    }
+
     public Product createProduct(ProductRequest productRequest) {
         Product product = new Product();
         product.setName(productRequest.getName());
